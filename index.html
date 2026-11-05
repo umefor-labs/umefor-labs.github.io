@@ -79,7 +79,13 @@
     .sectionhead h2{font-size:clamp(30px,3.4vw,46px);line-height:1.12;letter-spacing:-.035em;font-weight:600;margin:14px 0 0}
     .sectionhead p{max-width:390px;color:var(--muted);font-size:15px;margin:0}
 
-    .products{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .bubbles{position:relative;width:100%;max-width:330px;height:190px}
+    .bubbles .chat{position:absolute;right:0;top:6px;width:62%;height:176px;background:#091010;border:1px solid var(--line2);border-radius:10px;padding:12px;box-shadow:0 18px 40px -16px #000;display:flex;flex-direction:column;gap:8px;font:10px/1.4 var(--mono)}
+    .bubbles .chat .h{color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px}
+    .bubbles .m{max-width:82%;padding:6px 9px;border-radius:10px;color:var(--ink);background:#16302c}.bubbles .m.me{align-self:flex-end;background:#2dd4bf33}
+    .bubbles .b{position:absolute;left:0;width:50px;height:50px;border-radius:50%;border:2px solid var(--teal);display:grid;place-items:center;font:600 15px var(--sans);color:var(--ink);box-shadow:0 10px 24px -8px #000}
+    .bubbles .b i{position:absolute;right:-4px;top:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--amber);color:#2a1700;font:700 10px/18px var(--mono);font-style:normal;text-align:center;padding:0 4px}
     .card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
     .card:hover{border-color:#2dd4bf55}
     .card-art{height:250px;position:relative;display:flex;align-items:center;justify-content:center;padding:26px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 120%,#2dd4bf14,transparent 60%),repeating-linear-gradient(90deg,#ffffff05 0 1px,transparent 1px 24px),repeating-linear-gradient(0deg,#ffffff05 0 1px,transparent 1px 24px),#0c1312}
@@ -104,7 +110,7 @@
     .cardbody p{color:var(--muted);font-size:15px;margin:16px 0 22px}
     .cardlink{font:600 13px var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:12px;color:var(--teal);margin-top:auto;align-self:flex-start}
     .cardlink:hover{text-decoration:underline;text-underline-offset:5px}
-    .card-foot{font:11px/1.6 var(--mono);color:var(--dim);margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+    .cardtop h3{overflow-wrap:anywhere}.card-foot{font:11px/1.6 var(--mono);color:var(--dim);margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
 
     .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .research-card{border:1px dashed var(--line2);border-radius:12px;padding:26px;display:flex;flex-direction:column;align-items:flex-start;background:#0b1211}
@@ -132,12 +138,13 @@
     .footer .brand{font-size:18px}.footer .mark{width:22px;height:22px}
     .foot-right{text-align:right;display:grid;gap:4px}
 
+    @media(max-width:1100px){.products{grid-template-columns:1fr 1fr}.products .card:last-child{grid-column:1/-1}}
     @media(max-width:1000px){.wrap{width:calc(100% - 48px)}.hero{grid-template-columns:1fr;gap:48px;padding:72px 0 64px}.lede{max-width:600px}.principles{grid-template-columns:1fr}.principle+.principle{border-left:0;border-top:1px solid var(--line)}.about-grid{grid-template-columns:1fr;gap:28px}.about-panel{padding:40px}}
     @media(max-width:700px){.wrap{width:calc(100% - 32px)}.nav{height:60px;gap:12px}.navlinks{gap:16px;font-size:12px}.navlinks .navcontact{display:none}.brand{font-size:19px}
       .hero{padding:52px 0 48px;gap:36px}h1{font-size:clamp(40px,12vw,56px)}.lede{font-size:16px;margin:22px 0 28px}.actions .button{flex:1 1 auto}
       .term{font-size:12px}.term-body{padding:16px}.principle{padding:20px}
       section{padding-top:72px}.sectionhead{display:block;margin-bottom:28px}.sectionhead p{margin-top:16px;max-width:100%}
-      .products,.research-grid{grid-template-columns:1fr;gap:16px}.card-art{height:auto;min-height:220px;padding:20px 16px}.cardbody{padding:22px}.card h3{font-size:19px}.guide{grid-template-columns:1fr 1fr}.guide svg{height:150px}
+      .products,.research-grid{grid-template-columns:1fr;gap:16px}.products .card:last-child{grid-column:auto}.card-art{height:auto;min-height:220px;padding:20px 16px}.cardbody{padding:22px}.card h3{font-size:19px}.guide{grid-template-columns:1fr 1fr}.guide svg{height:150px}
       .about-panel{padding:28px 20px;border-radius:12px}.contact{display:block;padding-bottom:72px}.contact .button{margin-top:24px;width:100%;font-size:13px;overflow-wrap:anywhere}
       .footer{flex-direction:column;align-items:flex-start}.foot-right{text-align:left}}
     @media(max-width:380px){.navlinks{gap:10px}.guide{grid-template-columns:1fr}.guide svg{height:130px}}
@@ -171,6 +178,7 @@
           <div class="l"><span class="c-p">~/umefor</span> <span class="c-m">$</span> status</div>
           <div class="l"><span class="c-ok">✓</span> <span class="c-m">agent-safe-runner</span>  <span class="c-d">published · alpha</span></div>
           <div class="l"><span class="c-a">●</span> <span class="c-m">assemblelive</span>       <span class="c-d">local prototype</span></div>
+          <div class="l"><span class="c-ok">✓</span> <span class="c-m">messengerbubbles</span>   <span class="c-d">released · v0.7.0</span></div>
           <div class="l"><span class="c-p">~/umefor</span> <span class="c-m">$</span> <span class="cursor"></span></div>
         </div>
       </div>
@@ -188,6 +196,9 @@
         </article>
         <article class="card"><div class="card-art" aria-hidden="true"><div class="guide"><svg viewBox="0 0 200 165"><g stroke="#2dd4bf" stroke-width="1" stroke-linejoin="round"><path d="m40 72 66-32 57 29-65 34Z" fill="#14302c"/><path d="m40 72 58 31v13L40 85Z" fill="#0f2522"/><path d="m98 103 65-34v13l-65 34Z" fill="#112a27"/><path d="M49 91v47l12 6V98m83-6v44l-12 6v-44" fill="#112a27"/><path d="m75 36 31-15 28 14-31 16Z" fill="#2dd4bf33"/></g><path d="M105 54v16m-5-5 5 5 5-5" stroke="#f5b46a" fill="none" stroke-width="1.5"/></svg><div class="guide-text"><div class="tiny">ASSEMBLELIVE</div><strong data-en="One step at a time." data-vi="Từng bước rõ ràng.">One step at a time.</strong><p data-en="Image-based guides. Bilingual captions. Local saving." data-vi="Hướng dẫn từ ảnh. Chú thích song ngữ. Lưu cục bộ.">Image-based guides. Bilingual captions. Local saving.</p></div><div class="guide-footer"><span data-en="Concept illustration" data-vi="Minh họa ý tưởng">Concept illustration</span><span>VI / EN</span></div></div></div>
           <div class="cardbody"><div class="cardtop"><h3>AssembleLive</h3><span class="badge" data-en="Local prototype" data-vi="Bản thử nghiệm local">Local prototype</span></div><p data-en="Turn instruction images into editable, step-by-step assembly guides. A bilingual foundation with Vietnamese and English captions, local saving and a versioned project format." data-vi="Biến ảnh hướng dẫn thành các bước lắp ráp có thể chỉnh sửa. Nền tảng song ngữ Việt–Anh, lưu trên thiết bị và định dạng dự án có phiên bản.">Turn instruction images into editable, step-by-step assembly guides. A bilingual foundation with Vietnamese and English captions, local saving and a versioned project format.</p><a class="cardlink" href="mailto:xuanthanh@umefor.space?subject=AssembleLive%20%E2%80%94%20project%20enquiry"><span data-en="Talk about the project" data-vi="Trao đổi về dự án">Talk about the project</span><span aria-hidden="true">↗</span></a><div class="card-foot" data-en="In development · AI analysis and 3D playback are planned" data-vi="Đang phát triển · Phân tích AI và trình diễn 3D là tính năng dự kiến">In development · AI analysis and 3D playback are planned</div></div>
+        </article>
+        <article class="card"><div class="card-art" aria-hidden="true"><div class="bubbles"><div class="b" style="top:4px;background:#1b3a35">L<i>2</i></div><div class="b" style="top:68px;background:#2a2f45">M</div><div class="b" style="top:132px;background:#3a2c22">K<i>5</i></div><div class="chat"><div class="h">● Messenger</div><div class="m">Tối nay họp nhé?</div><div class="m me">OK, 8h nhé</div><div class="m">👍</div></div></div></div>
+          <div class="cardbody"><div class="cardtop"><h3>MessengerBubbles</h3><span class="badge released" data-en="Released · v0.7.0" data-vi="Đã phát hành · v0.7.0">Released · v0.7.0</span></div><p data-en="Floating Facebook chat bubbles for Windows 11, one bubble per conversation, like chat heads on Android. A WPF and WebView2 desktop app with message previews, sounds and a Vietnamese or English interface." data-vi="Bong bóng chat Facebook nổi trên Windows 11, mỗi cuộc chat một bóng, giống chat head trên Android. App desktop WPF và WebView2, có xem trước tin, âm báo và giao diện tiếng Việt hoặc tiếng Anh.">Floating Facebook chat bubbles for Windows 11, one bubble per conversation, like chat heads on Android. A WPF and WebView2 desktop app with message previews, sounds and a Vietnamese or English interface.</p><a class="cardlink" href="https://github.com/umefor-labs/MessengerBubbles" target="_blank" rel="noopener noreferrer"><span data-en="View on GitHub" data-vi="Xem trên GitHub">View on GitHub</span><span aria-hidden="true">↗</span></a><div class="card-foot" data-en="Windows 11 · Personal project, not affiliated with Meta" data-vi="Windows 11 · Dự án cá nhân, không liên kết với Meta">Windows 11 · Personal project, not affiliated with Meta</div></div>
         </article>
       </div>
     </section>
